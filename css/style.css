@@ -1,0 +1,7 @@
+.pod-preview {
+  width: 20%;
+  height: 200px;
+  border: 1px solid black;
+  display: inline-block;
+  overflow: hidden;
+}
