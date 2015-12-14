@@ -5,3 +5,8 @@
   display: inline-block;
   overflow: hidden;
 }
+
+.favorite {
+  width: 20px;
+  height: 20px;
+}
