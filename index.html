@@ -5,11 +5,16 @@
 	<title>Document</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <input id="searchValue" type="text" name="Search">
-  <input type="button" value="Search" onclick="searchPodcast()">
+  <nav>
+    <input id="searchValue" type="text" name="Search">
+    <input type="submit" value="Search" onclick="searchPodcast()">
+    <i class="fa fa-home" onclick="refresh()"></i>
+  </nav>
   <div id="content"></div>
 	<script src="js/script.js"></script>
 </body>
