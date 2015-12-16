@@ -58,10 +58,34 @@ body{
   overflow: hidden;
   text-align: center;
 }
+.pod-preview div{
+  background-color: #DAD7CD;
+  overflow: scroll;
+  height: 100px;
+}
+.pod-preview h2{
+  /*background-color: #C2EDEC;*/
+  font-weight: 600;
+  font-size: 0.8em;
+}
+.pod-preview h3{
+  /*background-color: #DCEDCF;*/
+  height: auto;
+  font-size: 0.7em;
+}
 .favorite {
-  width: 20px;
-  height: 20px;
-  fill: red;
+  color: #5C595F;
+}
+.favorite:hover{
+  color: #AC0C16;
+  font-size: 2em;
+}
+.not-favorite {
+  color: #AC0C16;
+}
+.not-favorite:hover{
+  color: #5C595F;
+  font-size: 2em;
 }
 nav{
   background-color: black;

@@ -91,8 +91,6 @@ if(typeof(Storage) !== "undefined") {
 }
 
 function addToFavorites(obj){
-  console.log("favorite")
-  console.log(obj)
   localStorage.addObj("favorites", 
     {
       collectionId: obj.collectionId,
@@ -105,26 +103,40 @@ function addToFavorites(obj){
   )
 }
 
+function unFavorite(obj){
+
+}
+
 function makePodcastPreview(obj){
+  console.log(obj)
   var div = document.createElement("div");
+  var textContainer = document.createElement('div');
   var img = document.createElement("img");
   var title = document.createElement("h2");
   var autor = document.createElement("h3");
-  var heartImg = document.createElement("img");
-    heartImg.src = "img/heart.svg"
-    heartImg.className = "favorite"
-    heartImg.addEventListener("click", function(){
-      addToFavorites(obj)
-    });
+  var heartIco = document.createElement("i");
     img.src = obj.artworkUrl100;
     title.innerHTML = obj.collectionName
     autor.innerHTML = obj.artistName
   div.className = "pod-preview"
   div.setAttribute("onclick", "getEpisodes("+"'"+obj.feedUrl+"'"+")")
   div.appendChild(img)
-  div.appendChild(heartImg)
-  div.appendChild(title)
-  div.appendChild(autor)
+  var array = localStorage.getObj("favorites")
+  if (!containsObject(obj, array)){
+    heartIco.className = "fa fa-heart favorite"
+    heartIco.addEventListener("click", function(){
+      addToFavorites(obj)
+    })
+  } else {
+    heartIco.className = "fa fa-heart not-favorite"
+    heartIco.addEventListener("click", function(){
+      unFavorite(obj)
+    })
+  }
+  textContainer.appendChild(heartIco)
+  textContainer.appendChild(title)
+  textContainer.appendChild(autor)
+  div.appendChild(textContainer)
   contentDiv.appendChild(div);
   return obj
 }
