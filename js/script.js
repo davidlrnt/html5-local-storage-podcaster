@@ -148,17 +148,32 @@ function refresh(){
 
 function appendEpisodes(episodes){
   _.forEach(episodes, function(episode) {
+    console.log("EP - ",episode);
+
+    var wrapper = document.createElement("div");
+      wrapper.setAttribute("class", "overview")
     var date = document.createElement("h1");
-      date.innerHTML = $('title',episode).text();
+      date.innerHTML = $('pubDate',episode).first().text();    
+
+    var title = document.createElement("h1");
+      title.innerHTML = $('title',episode).first().text();
+
     var audio = document.createElement("audio");
       audio.setAttribute("controls", "controls")
+      audio.setAttribute("preload", "metadata")
+
     var source = document.createElement("source");
       source.src = $('enclosure',episode).attr('url');
       audio.appendChild(source)
     var link=$('<a/>').attr('href',$('enclosure',episode).attr('url'))
           .text($('title',episode).text());
-    contentDiv.appendChild(date);
-    contentDiv.appendChild(audio);
+
+    wrapper.appendChild(date);
+    wrapper.appendChild(title);
+    wrapper.appendChild(audio);
+
+    contentDiv.appendChild(wrapper);
+
   })
 }
 

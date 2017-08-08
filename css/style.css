@@ -111,3 +111,14 @@ nav input[type="submit"]{
   font-size: 2em;
   float: right;
 }
+
+.overview {
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  box-shadow: 4px 5px 25px #978989;
+}
+.overview audio{
+  width: 100%;
+  border: 1px solid #a4a4a4;
+}
